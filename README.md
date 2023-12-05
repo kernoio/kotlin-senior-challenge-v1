@@ -23,6 +23,14 @@ We are providing a docker-compose file which contains:
 - The base for the app you are developing
 
 The objective is to create an app which is going to consume the messages from the topic and store them into the DB following the abstraction you've defined.
+It's important to consider that an App is composed by many Kubernetes' resources.
+
+### Kubernetes data structure
+The provided data is from a real Kubernetes Cluster, if you are not familiar with Kubernetes here are some tips on how data is store and linked.
+
+1. In this set of data you have two type of applications `Deployment` and `StatefulSet`
+2. Child resources are linked to their parent by a field called `ownerReferences`
+    1. The exception on this example is the `Service`, which is related by a `spec.selector` to a `Deployment` or `StatefulSet`
 
 ### Considerations
 
@@ -31,7 +39,7 @@ You are free to structure the projects, choose frameworks and/or libraries as yo
 We will be evaluating data structures, synchronization, resiliency and performance strategies.
 And be mindful that this is your presentation letter! Make sure it talks highly of you!
 
-The project is ready to be implemented using Kotlin. However, if you believe that using Java or Scala would result in a better outcome, we are open to accepting those as well. Similarly, if you prefer to use Maven instead of Gradle, we are flexible with that choice too. 
+The project is ready to be implemented using Kotlin. However, if you believe that using Java or Scala would result in a better outcome, we are open to accepting those as well. Similarly, if you prefer to use Maven instead of Gradle, we are flexible with that choice too.
 
 ### Clone this project to get started!
 Once you are happy with it, zip it and send it to `dev-challenges@kerno.io` for us to review.
